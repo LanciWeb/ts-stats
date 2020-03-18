@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var MatchResult_1 = __importDefault(require("./MatchResult"));
-var CsvFileReader_1 = __importDefault(require("./CsvFileReader"));
-var matchesFile = new CsvFileReader_1.default('football.csv');
+var MatchReader_1 = __importDefault(require("./MatchReader"));
+var matchesFile = new MatchReader_1.default('football.csv');
 matchesFile.read();
 var manUnitedWins = 0;
 for (var _i = 0, _a = matchesFile.data; _i < _a.length; _i++) {
