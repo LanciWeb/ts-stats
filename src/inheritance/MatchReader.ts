@@ -1,6 +1,6 @@
 import MatchResult from './MatchResult';
 import { dateStringToDate } from './utils';
-import CsvFileReader from './CsvFileReader';
+import CsvFileReader from './inheritance/CsvFileReader';
 //! tuple definition
 type MatchDataTuple = [
   Date,
