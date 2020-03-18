@@ -14,3 +14,29 @@
  * npm install @types/node
  */
 import fs from 'fs';
+
+//#2 read the csv file readFileSync()
+/**
+ * ? index.ts
+ * this will turn the cile into a big string
+ */
+const matches = fs.readFileSync('football.csv', {
+  encoding: 'utf-8'
+});
+
+//# 3 get the rows and cols
+/**
+ * ? index.js
+ * we can get the row splitting the string by '\n' (line break)
+ * this will result in an array of strings
+ *
+ * we then split the array of strings again by ',' so that we can get all the cells value
+ */
+const matches = fs
+  .readFileSync('football.csv', {
+    encoding: 'utf-8'
+  })
+  .split('\n')
+  .map((row: string): string[] => {
+    return row.split(',');
+  });
