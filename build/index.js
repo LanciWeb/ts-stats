@@ -5,10 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var MatchResult_1 = __importDefault(require("./MatchResult"));
 var MatchReader_1 = __importDefault(require("./MatchReader"));
-var matchesFile = new MatchReader_1.default('football.csv');
-matchesFile.read();
+var CsvFileReader_1 = __importDefault(require("./CsvFileReader"));
+var reader = new CsvFileReader_1.default('football.csv');
+var matchesFile = new MatchReader_1.default(reader);
+matchesFile.load();
 var manUnitedWins = 0;
-for (var _i = 0, _a = matchesFile.data; _i < _a.length; _i++) {
+for (var _i = 0, _a = matchesFile.matches; _i < _a.length; _i++) {
     var match = _a[_i];
     if (match[1] === 'Man United' && match[5] === MatchResult_1.default.HomeWin)
         manUnitedWins++;
