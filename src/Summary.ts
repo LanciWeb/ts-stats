@@ -9,4 +9,8 @@ export interface IOutputTarget {
 
 export default class Summary {
   constructor(public analyzer: IAnalyzer, public outputTarget: IOutputTarget) {}
+  public buildAndPrintReport(matches: MatchDataTuple[]): void {
+    const analysis = this.analyzer.run(matches);
+    this.outputTarget.print(analysis);
+  }
 }
