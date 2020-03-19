@@ -3,18 +3,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var MatchResult_1 = __importDefault(require("./MatchResult"));
+var Summary_1 = __importDefault(require("./Summary"));
 var MatchReader_1 = __importDefault(require("./MatchReader"));
 var CsvFileReader_1 = __importDefault(require("./CsvFileReader"));
+var WinsAnalysis_1 = __importDefault(require("./analyzers/WinsAnalysis"));
+var ConsoleReport_1 = __importDefault(require("./reporters/ConsoleReport"));
 var reader = new CsvFileReader_1.default('football.csv');
 var matchesFile = new MatchReader_1.default(reader);
 matchesFile.load();
-var manUnitedWins = 0;
-for (var _i = 0, _a = matchesFile.matches; _i < _a.length; _i++) {
-    var match = _a[_i];
-    if (match[1] === 'Man United' && match[5] === MatchResult_1.default.HomeWin)
-        manUnitedWins++;
-    else if (match[2] === 'Man United' && match[5] === MatchResult_1.default.AwayWin)
-        manUnitedWins++;
-}
-console.log("Manchester United won " + manUnitedWins + " matches");
+var summary = new Summary_1.default(new WinsAnalysis_1.default('Man United'), new ConsoleReport_1.default());
+summary.buildAndPrintReport(matchesFile.matches);
