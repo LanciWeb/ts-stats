@@ -5,12 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var Summary_1 = __importDefault(require("./Summary"));
 var MatchReader_1 = __importDefault(require("./MatchReader"));
-var CsvFileReader_1 = __importDefault(require("./CsvFileReader"));
 var HtmlReport_1 = __importDefault(require("./reporters/HtmlReport"));
 var WinsAnalysis_1 = __importDefault(require("./analyzers/WinsAnalysis"));
 var ConsoleReport_1 = __importDefault(require("./reporters/ConsoleReport"));
-var reader = new CsvFileReader_1.default('football.csv');
-var matchesFile = new MatchReader_1.default(reader);
+/* const reader = new CsvFileReader('football.csv');
+const matchesFile = new MatchReader(reader); */
+//! initialized match reader with static method
+var matchesFile = MatchReader_1.default.fromCsv('football.csv');
 matchesFile.load();
 var summary = new Summary_1.default(new WinsAnalysis_1.default('Man United'), new ConsoleReport_1.default());
 summary.buildAndPrintReport(matchesFile.matches);

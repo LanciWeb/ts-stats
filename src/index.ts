@@ -5,8 +5,11 @@ import HtmlReport from './reporters/HtmlReport';
 import WinsAnalysis from './analyzers/WinsAnalysis';
 import ConsoleReport from './reporters/ConsoleReport';
 
-const reader = new CsvFileReader('football.csv');
-const matchesFile = new MatchReader(reader);
+/* const reader = new CsvFileReader('football.csv');
+const matchesFile = new MatchReader(reader); */
+
+//! initialized match reader with static method
+const matchesFile = MatchReader.fromCsv('football.csv');
 matchesFile.load();
 
 const summary = new Summary(
