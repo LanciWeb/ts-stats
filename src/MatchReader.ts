@@ -1,15 +1,6 @@
 import MatchResult from './MatchResult';
+import MatchDataTuple from './MatchData';
 import { dateStringToDate } from './utils';
-
-type MatchDataTuple = [
-  Date,
-  string,
-  string,
-  number,
-  number,
-  MatchResult,
-  string
-];
 
 interface DataReader {
   read: () => void;
