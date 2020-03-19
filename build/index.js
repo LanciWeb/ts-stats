@@ -16,3 +16,5 @@ var summary = new Summary_1.default(new WinsAnalysis_1.default('Man United'), ne
 summary.buildAndPrintReport(matchesFile.matches);
 var htmlSummary = new Summary_1.default(new WinsAnalysis_1.default('Man United'), new HtmlReport_1.default('report.html'));
 htmlSummary.buildAndPrintReport(matchesFile.matches);
+//! called with static method implementation
+Summary_1.default.winsAnalysisHTML('Man United', matchesFile.matches, 'report2.html');

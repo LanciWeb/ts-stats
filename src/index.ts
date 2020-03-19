@@ -22,3 +22,6 @@ const htmlSummary = new Summary(
 );
 
 htmlSummary.buildAndPrintReport(matchesFile.matches);
+
+//! called with static method implementation
+Summary.winsAnalysisHTML('Man United', matchesFile.matches, 'report2.html');
